@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1></h1>
+<script>
+
+  const numDice = Number(prompt("Give dice number:"))
+  const sumOfEyes = Number(prompt("Sum of eyes:"))
+  let successfulOutcomes = 0;
+  const totalIterations = 10000;
+
+  for (let i = 0; i < totalIterations; i++) {
+    let sum = 0;
+    for (let j = 0; j < numDice; j++) {
+      // Rolling each die (assuming a six-sided die)
+      sum += Math.floor(Math.random() * 6) + 1;
+    }
+    if (sum === sumOfEyes) {
+      successfulOutcomes++;
+    }
+  }
+
+  const probability = (successfulOutcomes / totalIterations) * 100;
+  document.querySelector("h1").innerHTML= `Probability to get sum ${sumOfEyes} with ${numDice} dice is ${probability.toFixed(2)}%`;
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+<script>
+    const numbers = []
+    let number;
+
+    do {
+        number = Number(prompt("Give a number until the same number includes"))
+        if (!numbers.includes(number)) {
+            numbers.push(number)
+        }
+    } while (!numbers.includes(number))
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+     function dice(maxFace){
+        return Math.floor(Math.random() * maxFace) + 1
+    }
+
+    maxFace = Number(prompt("Give max face"))
+    let number;
+    const numbers = []
+    do{
+        number = dice(maxFace)
+        numbers.push(number)
+    }while (number != maxFace)
+
+    for (let i = 0; i < numbers.length; i++)
+    {
+        var nimi = document.createElement("ul")
+        nimi.appendChild(document.createTextNode(numbers[i]))
+        document.body.appendChild(nimi)
+    }
+
+</script>
+</body>
+</html>

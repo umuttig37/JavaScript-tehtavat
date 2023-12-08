@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+
+
+    function concat(array){
+        let tulos = "";
+        for(let i = 0; i < array.length; i++)
+        {
+            tulos += array[i];
+        }
+        text = document.createElement("ul")
+        text.appendChild(document.createTextNode(tulos))
+        document.body.appendChild(text)
+    }
+
+    myarray = ["Johnny", "DeeDee", "Joey", "Marky"];
+
+    concat(myarray)
+
+</script>
+</body>
+</html>

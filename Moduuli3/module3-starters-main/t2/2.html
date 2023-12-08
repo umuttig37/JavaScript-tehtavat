@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+    <link href="2.css" rel="stylesheet">
+    <script src="2.js" defer></script>
+</head>
+
+<body>
+    <h1>Task 2</h1>
+    <ul id="target"></ul>
+
+<script>
+    var items = ["First item", "Second item", "Third item"]
+    var newList = document.createElement('ul');
+    items.forEach(function (itemContent, index)
+    {
+        var listitem = document.createElement('li');
+        listitem.textContent = itemContent;
+
+        if(index === 1)
+        {
+            listitem.classList.add('my-item');
+        }
+
+        newList.appendChild(listitem);
+    });
+
+
+    var targetElement = document.getElementById('target');
+
+    targetElement.appendChild(newList);
+</script>
+</body>
+
+</html>

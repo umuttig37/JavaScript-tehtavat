@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<form>
+    <input id="query" type="text">
+    <input type="submit" value="Search">
+</form>
+
+<div id="results"></div>
+
+<script>
+    const form = document.querySelector("form");
+    const resultsContainer = document.querySelector("#results");
+
+    async function getapi(event) {
+        event.preventDefault();
+        const channel = document.querySelector("#query").value;
+
+        try {
+            const fullapi = await fetch("https://api.tvmaze.com/search/shows?q=" + channel);
+            const answer = await fullapi.json();
+            console.log("answer")
+            // Clear old results
+            resultsContainer.innerHTML = '';
+
+            const articles = answer.map(tvShow => {
+                const article = document.createElement("article");
+                // Name
+                const nameElement = document.createElement("h2");
+                const nameText = document.createTextNode(tvShow.show.name);
+                nameElement.appendChild(nameText);
+                article.appendChild(nameElement);
+
+                // Link to details
+                const linkElement = document.createElement("a");
+                linkElement.href = tvShow.show.url;
+                linkElement.target = "_blank";
+                const linkText = document.createTextNode("Link to details");
+                linkElement.appendChild(linkText);
+                article.appendChild(linkElement);
+
+                // Medium image
+                const imgElement = document.createElement("img");
+                imgElement.src = tvShow.show.image.medium ? `${tvShow.show.image.medium}` : 'https://via.placeholder.com/210x295?text=Not%20Found';
+                imgElement.alt = tvShow.show.name;
+                article.appendChild(imgElement);
+
+                // Summary
+                const summaryElement = document.createElement("div");
+                summaryElement.innerHTML = tvShow.show.summary;
+                article.appendChild(summaryElement);
+
+                return article;
+            });
+
+            // Append articles to the results container
+            articles.forEach(article => {
+                resultsContainer.appendChild(article);
+            });
+
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
+    form.addEventListener("submit", getapi);
+</script>
+</body>
+</html>

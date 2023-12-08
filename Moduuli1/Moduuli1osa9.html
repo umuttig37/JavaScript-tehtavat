@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1></h1>
+<script>
+  const number = Number(prompt("Give number:"));
+
+
+for (let i = 2; i < number; i++) {
+    if (number % i === 0) {
+        document.querySelector("h1").innerHTML = number + " is not prime number.";
+        break;
+    }
+    document.querySelector("h1").innerHTML = number + " is prime number.";
+}
+
+</script>
+</body>
+</html>

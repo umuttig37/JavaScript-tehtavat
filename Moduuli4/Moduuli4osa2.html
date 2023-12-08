@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Chuck Norris Joke Generator</h1>
+
+    <form id="jokeForm">
+        <label for="searchTerm">Enter a search term:</label>
+        <input type="text" id="searchTerm" required>
+        <button type="button" onclick="searchJokes()">Search</button>
+    </form>
+
+    <div id="jokesContainer"></div>
+
+    <script>
+        async function getJoke() {
+            const link = await fetch("https://api.chucknorris.io/jokes/random");
+            const result = await link.json();
+            console.log(result["value"]);
+        }
+
+        async function searchJokes() {
+            const searchTerm = document.getElementById('searchTerm').value;
+            const link = await fetch(`https://api.chucknorris.io/jokes/search?query=${searchTerm}`);
+            const result = await link.json();
+            displayJokes(result.result);
+        }
+
+        function displayJokes(jokes) {
+            const jokesContainer = document.getElementById('jokesContainer');
+            jokesContainer.innerHTML = '';
+
+            jokes.forEach(joke => {
+                const article = document.createElement('article');
+                const p = document.createElement('p');
+                p.textContent = joke.value;
+                article.appendChild(p);
+                jokesContainer.appendChild(article);
+            });
+        }
+
+        // Initially load a random joke
+        getJoke();
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+    function dice(){
+        return Math.floor(Math.random() * 6) + 1
+    }
+
+    let number;
+    const numbers = []
+    do{
+        number = dice()
+        numbers.push(number)
+    }while (number != 6)
+
+    for (let i = 0; i < numbers.length; i++)
+    {
+        var nimi = document.createElement("ul")
+        nimi.appendChild(document.createTextNode(numbers[i]))
+        document.body.appendChild(nimi)
+    }
+
+</script>
+</body>
+</html>

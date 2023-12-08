@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+    const names = []
+    for(let i = 0; i < 6; i++)
+    {
+        names.push(prompt(`anna koiran ${i} nimi`))
+    }
+    names.reverse()
+
+var list = document.createElement("ol");
+
+    for(let i = 0; i < names.length; i++)
+    {
+        var dogname = document.createElement("li");
+        dogname.appendChild(document.createTextNode(names[i]));
+        list.appendChild(dogname)
+    }
+    document.body.appendChild(list)
+</script>
+
+</body>
+</html>

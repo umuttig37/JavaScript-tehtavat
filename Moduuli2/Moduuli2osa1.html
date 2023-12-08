@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+    const numbers = [];
+    let askCounter = 0;
+    do {
+        const number = Number(prompt("Give number: "));
+        numbers.push(number);
+        askCounter++;
+    }while(askCounter <= 5)
+
+    let index = 4;
+    for (let i = 0; i <= numbers.length; i++)
+    {
+        console.log(numbers[index])
+        index--;
+    }
+</script>
+</body>
+</html>

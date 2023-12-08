@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+const names = []
+
+osallistujamaara = Number(prompt("Anna osallistujien määrä"))
+
+for(let i = 0; i < osallistujamaara; i++)
+{
+    names.push(prompt(`Anna osallituja ${i}`))
+}
+names.sort()
+
+var list = document.createElement("ol");
+for(let i = 0; i < names.length; i++)
+{
+    var nimi = document.createElement("li");
+    nimi.appendChild(document.createTextNode(names[i]));
+    list.appendChild(nimi)
+}
+
+document.body.appendChild(list)
+
+</script>
+</body>
+</html>

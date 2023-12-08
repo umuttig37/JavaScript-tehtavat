@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+    const numberlist = []
+
+    do{
+        var number = Number(prompt("Give number until its 0"))
+         numberlist.push(number)
+    }while(number != 0)
+
+    numberlist.sort((a,b) => a-b)
+
+    for(let i = 0; i < numberlist.length; i++)
+    {
+        console.log(numberlist[i])
+    }
+</script>
+</body>
+</html>

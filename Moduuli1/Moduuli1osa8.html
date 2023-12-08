@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<ul>
+</ul>
+<h1></h1>
+<script>
+const startYear = Number(prompt("Give starting year:"))
+const endYear = Number(prompt("Give ending year:"))
+
+for(let leapyear = startYear; leapyear < endYear; leapyear++)
+{
+    if(leapyear % 4 == 0 || leapyear % 100 == 0 && leapyear % 100 == 0)
+    {
+        document.querySelector("ul").innerHTML += "<li>" + leapyear + "</li>";
+    }
+}
+
+</script>
+
+</body>
+</html>

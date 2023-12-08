@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+const persons = []
+amount = Number(prompt("Amount of voters"))
+for (let i = 0; i < amount; i++)
+{
+    user = prompt(`Give persons ${i} name`)
+    persons.push({
+        name: user,
+        votes: 0,
+    });
+}
+let votedperson;
+while (!(votedperson && votedperson.votes >= 3)) {
+    for (let i = 0; i < persons.length; i++) {
+        answer = prompt(`who do you want to vote, ${persons[i].name}?`)
+        votedperson = persons.find(person => person.name === answer);
+        if (votedperson) {
+            votedperson.votes += 1;
+        } else {
+            alert("Invalid vote. Please vote for a valid person.");
+            i--; // Decrement i to re-enter the current iteration.
+        }
+    }
+}
+
+const winner = persons.find(person => person.votes === 3);
+alert(`${winner.name} wins!`)
+
+</script>
+</body>
+</html>
